@@ -1,0 +1,31 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="my-10 mx-40 text-3xl text-green-500 font-bold">+Add Product</h2>
+<form method="POST" enctype="multipart/form-data" class="mx-10 w-1/2">
+    {% csrf_token %}
+    <div class="flex flex-col justify-center items-center bg-yellow-500 rounded-lg m-4">
+        <div class=" bg-gray-300 w-4/5 rounded m-2 px-3 py-2">
+            <label class="text-xl font-bold text-gray-900" for="name">Product Name: </label>
+            <input class="outline-none" type="text" name="name" id="name">
+        </div>
+        <div class=" bg-gray-300 w-4/5 rounded m-2 px-3 py-2">
+            <label class="text-xl font-bold text-gray-900" for="name">Product Price: </label>
+            <input class="outline-none" type="text" name="price" id="price">
+        </div>
+        <div class=" bg-gray-300 w-4/5 rounded m-2 px-3 py-2">
+            <label class="text-xl font-bold text-gray-900" for="name">Product Description: </label>
+            <input class="outline-none" type="text" name="description" id="description">
+        </div>
+        <div class=" bg-gray-300 w-4/5 rounded m-2 px-3 py-2">
+            <label class="text-xl font-bold text-gray-900" for="image">Product image</label>
+            <input type="file" accept="image/*" name="upload" id="upload">
+        </div>
+        <div class=" m-2 ">
+            <input class="bg-green-500 text-xl font-bold text-green-200 px-3 py-2 rounded-full hover:bg-green-400 hover:text-green-50" type="submit" value="Add">
+            <a class="bg-red-500 text-xl font-bold text-red-200 px-3 py-2 rounded-full hover:bg-red-400 hover:text-red-50" href="{% url 'app1:index' %}">Back</a>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

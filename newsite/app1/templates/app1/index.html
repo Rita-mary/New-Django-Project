@@ -1,12 +1,30 @@
 {% extends 'app1/base.html' %}
 {% load static %}
 {% block content %}
+<div class="flex flex-col items-center justify-center my-10 md:flex-row space-x-1">
+    <h2 class="text-4xl text-gray-900 font-bold">Welcome To Landing</h2>
+    <h2 class="text-4xl text-gray-700 font-bold">Available Products</h2>
+</div>
 
-{% for product in products %}
-    <h1>{{product.name}}</h1>
-    <h1> {{product.price}}</h1>
-    <h1>{{product.description}}</h1>
-    <h1>{{product.date}}</h1>
-{% endfor %}
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 lg:grid-cols-3 gap-5">
+    {% for product in products %}
+        <a href="{% url 'app1:product_details' product.id %}">
+            <div class="rounded-md overflow-hidden shadow-sm bg-gray-300  m-4 py-2 px-3 border-yellow-500 border-b-4 ">
+                <div class="w-full">
+                    <img class="md:w-full md:h-60 lg:h-80" src="{{product.image.url}}" alt="">
+                    <div class="">
+                        <h1 class="text-2xl font-bold text-gray-900">{{product.name}}</h1>
+                        <h1 class="text-xl font-bold text-green-500">${{product.price}}</h1>
+                        <h1 class="text-xl font-bold text-gray-700">{{product.description}}</h1>
+                        <div class="text-xl font-bold text-gray-700">Added On: {{product.date}}</div>
+                    </div>
+                </div>
+                
+            </div>
+        </a>
+        
+    {% endfor %}
+</div>
+
 
 {% endblock %}
