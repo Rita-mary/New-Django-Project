@@ -18,8 +18,8 @@
                 </a>
             </div>
             <div class="hidden md:flex font-bold w-2/3 items-center space-x-8 justify-center text-gray-900">
-                <a class="hover:text-gray-500" href="#">Home</a>
-                <a class="hover:text-gray-500" href="#">About Us</a>
+                <a class="hover:text-gray-500" href="{% url 'app1:index' %}">Home</a>
+                <a class="hover:text-gray-500" href="{% url 'app1:add_product' %}">Add product</a>
                 <a class="hover:text-gray-500" href="#">Contact Us</a>
                 <a class="hover:text-gray-500" href="#">Sign Up</a>
             </div>
@@ -28,5 +28,66 @@
     {% block content %}
 
     {% endblock %}
+    <footer>
+        <div class="bg-gray-900 border-t-4 border-b-8 border-t-gray-100 border-b-gray-100">
+            <div class="Up flex flex-col-reverse mt-10 mx-4 py-10 md:flex-row ">
+                <div class="right flex flex-col-reverse items-center md:items-start md:w-1/2">
+                    <div class="flex items-center mt-4 md:-mt-4">
+                        <img class="h-20 w-20" src="{% static 'app1/images/logo.png' %}" alt="LOGO">
+                        <span class="text-yellow-500 font-bold text-4xl">Landing</span>
+                    </div>
+                    <div class="flex my-10">
+                        <a href="">
+                            <img class="h-10 w-10 mr-2" src="{% static 'app1/images/Facebook logo.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img class="h-10 w-10 mr-2" src="{% static 'app1/images/Twitter logo.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img class="h-10 w-10 mr-2" src="{% static 'app1/images/Instagram logo.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img class="h-10 w-10 mr-2" src="{% static 'app1/images/Whatsapp logo.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img class="h-10 w-10 mr-2" src="{% static 'app1/images/Skype logo.png' %}" alt="">
+                        </a>
+                        <a href="">
+                            <img class="h-10 w-10 mr-2" src="{% static 'app1/images/Youtube logo.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="left flex flex-row justify-center space-x-40 items-center md:w-1/2">
+                    <div>
+                        <h1 class="font-bold text-yellow-500">MORE <span class="font-bold text-xl">Landing</span></h1>
+                        <ul class="flex flex-col text-green-300 font-bold">
+                            <a href="#">Media</a>
+                            <a href="#">Events</a>
+                            <a href="#">Programs</a>
+                            <a href="#">Spaces</a>
+                            <a href="#">Newsletters</a>
+                            <a href="#">Deals</a>
+                        </ul>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-yellow-500">ABOUT <span class="font-bold text-xl">Landing</span></h1>
+                        <ul class="flex flex-col text-green-300 font-bold">
+                            <a href="#">Partner with us</a>
+                            <a href="#">Jobs</a>
+                            <a href="#">Terms & Conditions</a>
+                            <a href="#">Cookie Statement</a>
+                            <a href="#">Privacy Statement</a>
+                            <a href="#">Editorial Policy</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center border-t-2 pt-20 pb-10 border-t-gray-400">
+                <p class="text-gray-300 font-bold"><span class="font-bold text-xl">Landing</span> is a <span class="text-gray-100 font-bold">Financial Times</span> company</p>
+                <p class="text-gray-300 font-bond">Copyright &copy; 2022, The Next Web B.V Made with +3 in Nigeria.</p>
+            </div>
+        </div>
+
+    </footer>
 </body>
 </html>

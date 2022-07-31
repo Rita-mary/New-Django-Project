@@ -25,3 +25,23 @@ def add_product(request):
         product.save()
         return redirect('/app1/index')
     return render(request , 'app1/add_products.html')
+
+def update_product(request , id):
+    product = Product.objects.get(id = id)
+    if request.method == 'POST':
+        product.name = request.POST.get('name')
+        product.price = request.POST.get('price')
+        product.description = request.POST.get('description')
+        product.image = request.FILES['upload']
+        product.save()
+        return redirect('/app1/index')
+    context = {'product': product}
+    return render(request , 'app1/update_products.html', context)
+
+def delete_product(request , id):
+    product = Product.objects.get(id = id)
+    if request.method =='POST':
+        product.delete()
+        return redirect('/app1/index')
+    context =  {'product': product}
+    return render(request , 'app1/delete_product.html' , context)
