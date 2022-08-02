@@ -2,4 +2,43 @@
 {% load static %}
 {% block content %}
 
+<form method="post">
+    {% csrf_token %}
+    <div class="">
+        <div class="m-10 flex flex-col items-center justify-center md:flex-row">
+            <div class="md:w-2/5 h-96 rounded-lg bg-yellow-500">
+                <div class="flex flex-col items-center justify-center my-20 mx-4">
+                    <h1 class="text-4xl font-bold text-gray-500">Welcome Back!</h1>
+                    <p class="text-lg text-gray-300 font-bold">To keep connected with us</p>
+                    <p class="text-lg text-gray-300 font-bold">please login with personal info</p>
+                    <a class="border-2 border-gray-500 rounded-full px-4 py-2 text-lg font-bold text-gray-500 mt-6" href="#">SIGN IN</a>
+                </div>
+            </div>
+            <div class="bg-gray-500 flex flex-col justify-center rounded-lg mt-4 md:-mt-4 items-center py-10 md:w-3/5">
+                <h1 class="text-4xl font-bold text-yellow-500">Create Account</h1>
+                <div class="font-bold text-6xl flex items-center text-center bg-gray-500 justify-center w-20 h-20 rounded-full">👨</div>
+                <div>
+                    <div class="flex bg-gray-300 rounded-full mb-4 p-2 overflow-hidden">
+                        <label class="text-xl text-gray-900 font-bold " for="username">Username: </label>
+                        <div class="text-lg font-bold text-gray-700">{{form.username}}</div>
+                    </div>
+                    <div class="flex bg-gray-300 rounded-full mb-4 p-2 overflow-hidden">
+                        <label class="text-xl text-gray-900 font-bold " for="username">Email: </label>
+                        <div class="text-lg font-bold text-gray-700">{{form.email}}</div>
+                    </div>
+                    <div class="flex bg-gray-300 rounded-full mb-4 p-2 overflow-hidden">
+                        <label class="text-xl text-gray-900 font-bold " for="username">Password: </label>
+                        <div class="text-lg font-bold text-gray-700">{{form.password1}}</div>
+                    </div>
+                    <div class="flex bg-gray-300 rounded-full mb-4 p-2 overflow-hidden">
+                        <label class="text-xl text-gray-900 font-bold " for="username">Confirm Password: </label>
+                        <div class="text-lg font-bold text-gray-700">{{form.password2}}</div>
+                    </div>
+                </div>
+                <button class="text-xl text-gray-900 font-bold bg-yellow-500 rounded-full px-2 py-3 " type="submit">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</form>
+
 {% endblock %}
