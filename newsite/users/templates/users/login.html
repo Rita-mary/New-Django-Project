@@ -1,0 +1,36 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="">
+        <div class="m-10 flex flex-col items-center justify-center bg-gray-500 overflow-hidden rounded-lg md:flex-row">
+            <div class="md:w-2/5 h-80 rounded-lg mx-10 my-10 bg-yellow-500 shadow-2xl ">
+                <div class="flex flex-col items-center justify-center my-20 mx-4">
+                    <h1 class="text-4xl font-bold text-gray-500">Hello Welcome!</h1>
+                    <p class="text-lg text-gray-200 font-bold">To keep connected with us</p>
+                    <p class="text-lg text-gray-200 font-bold">please register with us here</p>
+                    <a class="border-2 border-gray-500 rounded-full px-4 py-2 text-lg font-bold text-gray-500 mt-6 hover:text-gray-700 hover:border-gray-700 " href="{% url 'users:register' %}">SIGN UP</a>
+                </div>
+            </div>
+            <div class="h-80 flex flex-col justify-center rounded-lg items-center mx-10  py-10 shadow-2xl md:-mt-1 md:w-3/5">
+                <h1 class="text-4xl font-bold text-yellow-500">Sign in now</h1>
+                <div class="font-bold text-6xl flex items-center text-center bg-green-500 justify-center p-2 w-20 h-20 rounded-full">👨</div>
+                <div class="px-4 mt-4 md:-px-4">
+                    <div class="flex bg-gray-300 rounded-full mb-4 p-2 overflow-hidden">
+                        <label class="text-xl text-gray-900 font-bold " for="username">Username: </label>
+                        <div class="text-lg font-bold text-gray-700 focus:outline-none">{{form.username}}</div>
+                    </div>
+                    <div class="flex bg-gray-300 rounded-full mb-4 p-2 overflow-hidden">
+                        <label class="text-xl text-gray-900 font-bold " for="username">Password: </label>
+                        <div class="text-lg font-bold text-gray-700 focus:outline-none">{{form.password}}</div>
+                    </div>
+                </div>
+                <button class="text-xl text-yellow-500 font-bold border-2 border-yellow-500 rounded-full px-4 py-2 hover:text-yellow-700 hover:border-yellow-700 " type="submit">SIGN IN</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Product
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def products(request):
@@ -14,7 +15,7 @@ def product_details(request , id):
         'product' : product
     }
     return render(request , 'app1/product_details.html', context)
-
+@login_required
 def add_product(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -26,6 +27,7 @@ def add_product(request):
         return redirect('/app1/index')
     return render(request , 'app1/add_products.html')
 
+@login_required
 def update_product(request , id):
     product = Product.objects.get(id = id)
     if request.method == 'POST':
@@ -38,6 +40,7 @@ def update_product(request , id):
     context = {'product': product}
     return render(request , 'app1/update_products.html', context)
 
+@login_required
 def delete_product(request , id):
     product = Product.objects.get(id = id)
     if request.method =='POST':
